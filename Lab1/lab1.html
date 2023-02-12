@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <!--
+  <head>
+    <!--
       JavaScript 7th Edition
       Chapter 1
       
@@ -11,20 +11,18 @@
 
   
    -->
-   <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-   <title>Lab 1</title>
-   <link rel="stylesheet" href="styles.css" />
-</head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Lab 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-   <header>
-      <h1>
-         Lab 1
-      </h1>
-   </header>
+  <body>
+    <header>
+      <h1>Lab 1</h1>
+    </header>
 
-   <article>
+    <article>
       <h2>Order Form</h2>
       <form>
         <fieldset id="contactinfo">
@@ -156,9 +154,15 @@
           </fieldset>
         </fieldset>
         <fieldset id="submitbutton">
-          <input type="submit" value="Submit" />
+          <button type="button" onclick="myFunction()">Submit</button>
+          <div id="submitMsg"></div>
         </fieldset>
-     </form>
-   </article>
-</body>
+      </form>
+    </article>
+    <script>
+      function myFunction() {
+          var x = document.getElementById('submitMsg').innerHTML = 'Thank you for your order';
+      }
+      </script>
+  </body>
 </html>
