@@ -102,15 +102,3 @@ topButton.addEventListener("click", function() {
    generateCustomerList();
 });
 
-
-
-/* 
-o	Add Michael One to the customer list.  Should show up as 26th position
-o	Search for Gene Bearden.  Verify he is the 21st entry
-o	Remove John Hilton from the list.  Verify the number of customers is now 25
-o	Remove top customer from the list
-o	Search for Peter Blake.  Verify the name is not found. 
-o	Take a screen capture after completing above steps.
-•	Submit screen capture, index.html, and script.js files via Blackboard.
-
-*/
