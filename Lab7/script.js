@@ -3,7 +3,7 @@
       Chapter 7
 
       Project to create a customer queue
-      Author: Denzel Udemba
+      Author: Denzel Udemba   
       Date:   04/30/2023
 
       
@@ -25,9 +25,10 @@ let searchButton = document.getElementById("searchButton");
 let removeButton = document.getElementById("removeButton");
 let topButton = document.getElementById("topButton");
 
-let status = document.getElementById("status");
+let statusMessage = document.getElementById("status");
 
 generateCustomerList();
+
 
 // Function to generate the ordered list based on the contents of the customers array
 function generateCustomerList() {
@@ -39,3 +40,77 @@ function generateCustomerList() {
    }
 }
 
+// Add event listener for addButton click
+addButton.addEventListener("click", function() {
+   // Check if customer already exists in the array
+   if (customers.includes(customerName.value)) {
+      statusMessage.textContent = `${customerName.value} is already in the queue`;
+   } else {
+         // Add new customer to array
+         customers.push(customerName.value);
+      
+         // Update customer list on page
+         generateCustomerList();
+      
+         // Display status message
+         statusMessage.textContent = `${customerName.value} added to the end of the queue`;
+      
+         // Clear input field
+         customerName.value = "";
+   }
+ });
+
+//Add event listener for removeButton click
+removeButton.onclick = function() {
+   let index = customers.indexOf(customerName.value);
+   if (index !== -1) {
+      customers.splice(index, 1);
+      statusMessage.textContent = `Customer ${customerName.value} removed from the queue`;
+
+      generateCustomerList();
+   } else {
+      statusMessage.textContent = `Customer ${customerName.value} is not found in the queue`;
+   }
+   customerName.value = "";
+};
+
+
+//Add an event listener for searchButton 
+searchButton.addEventListener("click", function(){
+   //index of method to locate the index of the array (what position it is)
+   let customerPositionIndex = customers.indexOf(customerName.value) + 1;
+   //if case checks if the index position matches the customer name in array
+   if (customerPositionIndex === 0) {
+
+      statusMessage.textContent = customerName.value + " is not found in the array :/";
+   }
+   else {
+
+      statusMessage.textContent = customerName.value + ` was found in slot  ${customerPositionIndex}  of the queue :)`;
+   }
+});
+
+// Add event listener for topButton click
+topButton.addEventListener("click", function() {
+   // Remove top customer from array and store in topCustomer variable
+   let topCustomer = customers.shift();
+   
+   // Display status message
+   statusMessage.textContent = "Removed top customer from the queue: " + topCustomer;
+   
+   // Update customer list on page
+   generateCustomerList();
+});
+
+
+
+/* 
+o	Add Michael One to the customer list.  Should show up as 26th position
+o	Search for Gene Bearden.  Verify he is the 21st entry
+o	Remove John Hilton from the list.  Verify the number of customers is now 25
+o	Remove top customer from the list
+o	Search for Peter Blake.  Verify the name is not found. 
+o	Take a screen capture after completing above steps.
+•	Submit screen capture, index.html, and script.js files via Blackboard.
+
+*/
