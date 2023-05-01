@@ -4,8 +4,8 @@
       Lab 9
 
       Project to read field values from session storage
-      Author: 
-      Date:   
+      Author: Denzel Udemba
+      Date:   04/30/23
 
 */
 
@@ -20,4 +20,14 @@ let region = document.getElementById("region");
 let miles = document.getElementById("miles");
 let comments = document.getElementById("comments");
 
+      
+// Retrieve data from session storage and set text content of elements
+riderName.textContent = sessionStorage.getItem("riderName");
+ageGroup.textContent = sessionStorage.getItem("ageGroup");
+bikeOption.textContent = sessionStorage.getItem("bikeOption");
+routeOption.textContent = sessionStorage.getItem("routeOption");
+accOption.textContent = sessionStorage.getItem("accOption");
+region.textContent = sessionStorage.getItem("region");
+miles.textContent = sessionStorage.getItem("miles");
+comments.textContent = sessionStorage.getItem("comments");
 
