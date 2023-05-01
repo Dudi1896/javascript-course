@@ -9,7 +9,6 @@
       Driving Directions Form
       Author: Denzel Udemba
       Date:   04/30/2023
-      
    -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -17,8 +16,8 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="./script.js" defer></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_De7KUMACdaDmpL-v1n2KNM6RrPrhkq0&callback=showMap"
-      defer
+      src="https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=showMap"
+      async defer
     ></script>
   </head>
 
@@ -32,7 +31,7 @@
       <p>Choose an origin and a destination city</p>
 
       <fieldset>
-        <select id="startingPoint" size="7">
+        <select id="startingCity" size="7">
           <option value="" selected>Starting City</option>
           <option value="Acworth,GA">Acworth</option>
           <option value="Alpahretta">Alpahretta</option>
@@ -41,11 +40,12 @@
           <option value="Augusta,GA">Augusta</option>
           <option value="Columbus,GA">Columbus</option>
           <option value="Macon,GA">Macon</option>
+          <option value="Roswell,GA">Roswell</option>
           <option value="Savannah,GA">Savannah</option>
           <option value="Valdosta,GA">Valdosta</option>
         </select>
 
-        <select id="endingPoint" size="7">
+        <select id="endingCity" size="7">
           <option value="" selected>Ending City</option>
           <option value="Acworth,GA">Acworth</option>
           <option value="Alpahretta">Alpahretta</option>
@@ -54,6 +54,7 @@
           <option value="Augusta,GA">Augusta</option>
           <option value="Columbus,GA">Columbus</option>
           <option value="Macon,GA">Macon</option>
+          <option value="Roswell,GA">Roswell</option>
           <option value="Savannah,GA">Savannah</option>
           <option value="Valdosta,GA">Valdosta</option>
         </select>

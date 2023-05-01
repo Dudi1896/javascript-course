@@ -17,13 +17,8 @@ function showMap() {
   let startingCity = document.getElementById("startingCity");
   let endingCity = document.getElementById("endingCity");
 
-  
 
-  // Google Maps API key and URL
-  let apiKey = "";
-  let apiUrl = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=showMap`;
-
-  let driverFind = new google.maps.DirectionsService();
+  let driveFind = new google.maps.DirectionsService();
   let driveDraw = new google.maps.DirectionsRenderer();
 
   // Set default location to North Metro Campus
@@ -41,8 +36,8 @@ function showMap() {
   driveDraw.setPanel(driveDirections);
 
   // Create event listeners for the starting and ending cities
-  startingCity.addEventListener("change", drawRoute);
-  endingCity.addEventListener("change", drawRoute);
+  startingCity.addEventListener("click", drawRoute);
+  endingCity.addEventListener("click", drawRoute);
 
   // Define the drawRoute function
   function drawRoute() {
@@ -52,14 +47,20 @@ function showMap() {
         destination: endingCity.value,
         travelMode: google.maps.TravelMode.DRIVING,
       };
-      driveFind.route(driveRoute, function (response, status) {
+      driveFind.route(driveRoute, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+          // Display the route on the map and the turn-by-turn directions in the panel
           driveDraw.setDirections(response);
+          driveDraw.setMap(myMap);
+          driveDraw.setPanel(driveDirections);
+        } else {
+          // Display an error message if the request was not successful
+          driveDirections.textContent = "Directions Unavailable: " + status;
         }
       });
-      driveDraw.setMap(myMap);
     } else {
       driveDraw.setMap(null);
     }
   }
-}
+
+};
