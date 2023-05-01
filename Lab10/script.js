@@ -20,7 +20,7 @@ function showMap() {
   
 
   // Google Maps API key and URL
-  let apiKey = "AIzaSyB_De7KUMACdaDmpL-v1n2KNM6RrPrhkq0";
+  let apiKey = "";
   let apiUrl = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=showMap`;
 
   let driverFind = new google.maps.DirectionsService();
