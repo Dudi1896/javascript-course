@@ -120,5 +120,13 @@ input#place {
 }
 
 input#region {
-   width: 120px;
+   width: 45px;
+}
+
+input#longitude {
+   width: 250px;
+}
+
+input#latitude {
+   width: 250px;
 }
